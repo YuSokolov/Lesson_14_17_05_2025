@@ -9,6 +9,7 @@ def index():
         area = request.form.get("area")
         # проверка кода
         print(area)
+
     return render_template("index.html")
 
 if __name__ == '__main__':
