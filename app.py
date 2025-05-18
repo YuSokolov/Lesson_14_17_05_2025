@@ -6,12 +6,12 @@ app = Flask(__name__)
 
 @app.route('/', methods=["get", "post"]) # 127.0.0.1:5000/
 def index():
-    message = "Здесь будут отражены результаты прогноза"
+    message = "Здесь будут отражены результаты прогноза: 0 - до 18лет, 1 - от 18 до 25, 2 - 26-35, 3 - 36-45, 4 - 46-55, 5 - 56-65, 6 - >65"
     if request.method == "POST":
-        area = request.form.get("area")
+        user_num = request.form.get("user_num")
         # проверка кода
-        cost = get_prediction(float(area))
-        message = f"Стоимость квартиры {area} кв.м. составляет {cost} руб."
+        age_code = get_prediction(float(user_num))
+        message = f"Пользователь с кодом {user_num} возраст в группе {age_code}"
 
     return render_template("index.html", message = message)
 
