@@ -12,4 +12,4 @@ def get_prediction(user_num):
     saved_predictions = saved_model.predict(user_data_from_file)
     
     # Поиск возрастной группы пользователя
-    return np.argmax(saved_predictions[user_num])
+    return np.argmax(saved_predictions[int(user_num)])
